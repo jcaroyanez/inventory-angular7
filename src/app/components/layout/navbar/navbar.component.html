@@ -1,0 +1,26 @@
+  <!--Navbar-->
+  <mdb-navbar [containerInside]="false" SideClass="navbar navbar-expand-lg navbar-light white top-nav-collapse">
+
+    <!-- Navbar brand -->
+    <logo class="ml-3">
+        <a class="navbar-brand" href="#">
+            <strong class="blue-text">MDB</strong>
+        </a>
+    </logo>
+    <links class="links">
+    <div class="navbar-nav btn-group" mdbDropdown >
+        <button mdbDropdownToggle type="button" mdbBtn color="dark" class="btn-setting waves-light "
+          mdbWavesEffect>
+          Configuración <mdb-icon icon="fa fa-user-o" class="ml-1"></mdb-icon>
+        </button>
+      
+        <div class="dropdown-menu dropdown-primary">
+          <a class="dropdown-item" href="#"><a><i class="fa fa-table mr-3"></i>Cuenta</a></a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </links>
+
+</mdb-navbar>
+<!--/.Navbar-->

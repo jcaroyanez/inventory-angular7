@@ -37,10 +37,10 @@
         @media (min-width:1200px){
             .navbar,.page-footer,main{padding-left:270px}
         }
-        @media (max-width:1199.98px){
+        /*@media (max-width:1199.98px){
             .sidebar-fixed{
                 display:none
-        }}
+        }}*/
 
 .card.card-cascade .view.gradient-card-header {
     padding: 1rem 1rem;
@@ -56,3 +56,9 @@ margin-bottom: 0px;
     background: -webkit-linear-gradient(50deg, #45cafc, #303f9f);
     background: linear-gradient(40deg, #45cafc, #4285f4);
 }        
+
+.message-error{
+    color:#f44336 ;
+    padding-left: 2.7em;
+    font-size: 14px;
+}

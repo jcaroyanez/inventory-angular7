@@ -1,0 +1,7 @@
+#sidebar .list-group .list-group-item[aria-expanded="true"]::after{
+    float: right !important;
+} 
+
+#sidebar .list-group .list-group-item[aria-expanded="false"]::after{
+    float: right !important;
+}

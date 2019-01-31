@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule, DropdownModule  } from 'angular-bootstrap-md';
 
@@ -12,6 +12,8 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 const MDB_IMPORTS = [
   ButtonsModule,
@@ -31,6 +33,9 @@ const MDB_IMPORTS = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRouting,
     MDBBootstrapModule.forRoot(),
     ...MDB_IMPORTS,

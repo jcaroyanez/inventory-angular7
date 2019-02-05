@@ -1,0 +1,42 @@
+<div class="card mb-4 wow fadeIn header-title">
+
+    <!--Card content-->
+    <div class="card-body d-sm-flex justify-content-between ">
+
+        <h4 class="mb-sm-0 pt-3">
+            <span class="first-tile">Crear</span>
+            <span class="spacer-title">/</span>
+            <span class="second-title">Categoria</span>
+        </h4>
+    </div>
+
+</div>
+
+<div class="row spacer-form">
+    <div class="col-md-7 offset-md-2 form-category">
+
+        <div #alert class="alert alert-danger alert-dismissible fade hide-display" role="alert">
+            <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>{{message}}</strong>
+        </div>
+        
+        <form [formGroup]="formCategory">
+            <div class="md-form">
+                <input type="text" mdbInputDirective [mdbValidate]="false" id="name" class="form-control"
+                    formControlName="nameCtrl">
+                <label for="name">Nombre de la categoria</label>
+                <div *ngFor="let validation of account_validation_messages.nameCtrl">
+
+                    <p class="message-error" *ngIf="formCategory.get('nameCtrl').hasError(validation.type) 
+                        && (formCategory.get('nameCtrl').dirty || formCategory.get('nameCtrl').touched)">{{validation.message}}</p>
+
+                </div>
+            </div>
+            <div class="md-form text-center">
+                <button type="submit" class="btn btn-primary btn-block" (click)="save()">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>

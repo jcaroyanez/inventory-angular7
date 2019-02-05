@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, AfterViewInit, Renderer2, OnDestroy,  ViewChild, ElementRef  } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit,AfterViewInit, OnDestroy {
         }
       });
     }else{
-      this.message = "Ingrese los datos requeridos";
+      this.message = "Ingrese los datos son requeridos";
       this.showAlert();
     } 
   }

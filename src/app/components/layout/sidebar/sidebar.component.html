@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <div class="sidebar-fixed position-fixed" id="sidebar">
 
-    <a class="logo-wrapper">
+    <a class="logo-wrapper" [routerLink]="['/']">
         <img src="../../../../assets/angular-logo.png" class="img-fluid">
     </a>
 
@@ -11,12 +11,13 @@
             <i class="fa fa-pie-chart mr-3"></i>Dashboard
         </a>
 
-        <a href="#menu3" class="list-group-item collapsed active" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i
-                class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 3 </span></a>
-        <div class="collapse" id="menu3">
-            <a href="#" class="list-group-item" data-parent="#menu3"><i class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 1</span></a>
-            <a href="#" class="list-group-item" data-toggle="#menu3"><i class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 2</span></a>
-            <a href="#" class="list-group-item" data-parent="#menu3"><i class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 3</span></a>
+        <a href="#menuCategory" class="list-group-item collapsed active" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i
+                class="fa fa-bookmark-o mr-3"></i> <span class="hidden-sm-down">Categoria</span></a>
+        <div class="collapse customer-menu" id="menuCategory">
+            <a href="#" class="list-group-item item-link" data-parent="#menuCategory" [routerLink]="['/panel/category/add']">
+                <i class="fa fa-plus mr-3"></i> <span class="hidden-sm-down">Crear</span></a>
+            <a href="#" class="list-group-item item-link" data-toggle="#menuCategory"><i class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 2</span></a>
+            <a href="#" class="list-group-item item-link" data-parent="#menuCategory"><i class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 3</span></a>
         </div>
     </div>
 </div>

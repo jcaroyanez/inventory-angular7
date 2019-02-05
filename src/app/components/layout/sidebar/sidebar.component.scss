@@ -22,3 +22,19 @@ a{
     color: #495057;
 }
 
+
+.customer-menu{
+    background: #f8f9fa !important;
+    .item-link{
+        background: #f8f9fa;
+    }
+    .item-link:hover{
+        background: #e6e6e6 !important;
+        margin-left: 0px !important;
+    }
+}
+  
+  @media (max-width: 1199.98px) {
+    .sidebar-fixed {
+      display: none; } }
+

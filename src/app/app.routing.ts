@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './components/layout/panel/panel.component';
 import { IsAuthGuard } from './guards/is-auth.guard';
 import { IsNotAuthGuard } from './guards/is-not-auth.guard';
+import { AddCategoryComponent } from './components/category/add-category/add-category.component';
 
 const routes: Routes = [
     {
@@ -13,7 +14,11 @@ const routes: Routes = [
         path:'login',component:LoginComponent,canActivate:[IsAuthGuard]
     },
     {
-        path:'panel',component:PanelComponent,canActivate:[IsNotAuthGuard]
+        path:'panel',component:PanelComponent,canActivate:[IsNotAuthGuard],children:[
+            {
+                path:'category',loadChildren:'./components/category/category.module#CategoryModule'
+            }
+        ]
     }
 ];
 

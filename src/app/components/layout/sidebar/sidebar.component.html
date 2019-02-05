@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<div class="sidebar-fixed position-fixed" id="sidebar">
+<div class="sidebar-fixed position-fixed customer-padding" id="sidebar">
 
     <a class="logo-wrapper" [routerLink]="['/']">
         <img src="../../../../assets/angular-logo.png" class="img-fluid">
@@ -16,7 +16,8 @@
         <div class="collapse customer-menu" id="menuCategory">
             <a href="#" class="list-group-item item-link" data-parent="#menuCategory" [routerLink]="['/panel/category/add']">
                 <i class="fa fa-plus mr-3"></i> <span class="hidden-sm-down">Crear</span></a>
-            <a href="#" class="list-group-item item-link" data-toggle="#menuCategory"><i class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 2</span></a>
+            <a href="#" class="list-group-item item-link" data-toggle="#menuCategory" [routerLink]="['/panel/category/list']">
+                <i class="fa fa-list-alt mr-3"></i> <span class="hidden-sm-down">Gestionar categorias</span></a>
             <a href="#" class="list-group-item item-link" data-parent="#menuCategory"><i class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 3</span></a>
         </div>
     </div>

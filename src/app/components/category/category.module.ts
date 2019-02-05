@@ -4,9 +4,12 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { CategoryRoutingModule } from './category.routing';
 import { InputsModule } from 'angular-bootstrap-md';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ListCategoryComponent } from './list-category/list-category.component';
+
 @NgModule({
   declarations: [
-    AddCategoryComponent
+    AddCategoryComponent,
+    ListCategoryComponent
   ],
   imports: [
     CommonModule,

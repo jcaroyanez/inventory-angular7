@@ -69,3 +69,21 @@ margin-bottom: 0px;
 .show-display{
       display: block;
 }
+
+.header-title-component{
+    border-bottom: 5px solid !important;
+    div{
+        padding: 10px !important;
+        padding-bottom: 1rem !important;
+        .first-tile{
+            font-size: 1.7rem;
+        }
+        .second-title{
+            font-size: 1.2rem;     
+        }
+    }
+    .spacer-title{
+        margin-left: .3rem;
+        margin-right: .3rem;
+    }
+}

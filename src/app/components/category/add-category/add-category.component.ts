@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, Validators} from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -21,7 +21,6 @@ export class AddCategoryComponent implements OnInit {
   constructor(
     private fb:FormBuilder,
     private categoryService:CategoryService,
-    private ngZone:NgZone
   ) { 
     this.formCategory = fb.group({
       nameCtrl:[null,[Validators.required]]
@@ -50,12 +49,19 @@ export class AddCategoryComponent implements OnInit {
             this.showAlert();
 
         },err => {
-          this.message = null;
-          this.closeAlert();
-          this.alert.nativeElement.classList.replace('alert-success','alert-danger');
-          this.message = err.error.message;
-          this.showAlert();
-
+          if(err.error.message){
+            this.message = null;
+            this.closeAlert();
+            this.alert.nativeElement.classList.replace('alert-success','alert-danger');
+            this.message = err.error.message;
+            this.showAlert();
+          }else{
+            this.message = null;
+            this.closeAlert();
+            this.alert.nativeElement.classList.replace('alert-success','alert-danger');
+            this.message = "A ocurrido un error inesperado";
+            this.showAlert();
+          }
         })
     }else{
         this.message = null;

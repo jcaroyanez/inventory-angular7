@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule, DropdownModule  } from 'angular-bootstrap-md';
 
-import { ButtonsModule, WavesModule, CardsFreeModule, InputsModule } from 'angular-bootstrap-md';
+import { ButtonsModule, WavesModule, CardsFreeModule, InputsModule,TableModule } from 'angular-bootstrap-md';
 import { LoginComponent } from './components/login/login.component';
 import { AppRouting } from './app.routing';
 import { PanelComponent } from './components/layout/panel/panel.component';
@@ -20,7 +20,8 @@ const MDB_IMPORTS = [
   ButtonsModule,
   WavesModule,
   CardsFreeModule,
-  InputsModule
+  InputsModule,
+  TableModule
 ]
 @NgModule({
   declarations: [

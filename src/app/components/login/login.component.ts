@@ -65,11 +65,11 @@ export class LoginComponent implements OnInit,AfterViewInit, OnDestroy {
         this.router.navigate(['/panel']);
 
       },err => {
-        if(err.error){
+        if(err.error.message){
           this.message = err.error.message;
           this.showAlert(); 
         }else{
-          this.message = "a ocurrido un error inesperado";
+          this.message = "A ocurrido un error inesperado";
           this.showAlert();
         }
       });

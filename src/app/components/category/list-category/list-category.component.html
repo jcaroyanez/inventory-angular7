@@ -8,3 +8,61 @@
         </h4>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12 mx-auto">
+        <div class="md-form">
+            <i class="fa fa-search prefix"></i>
+            <input type="text" [mdbValidate]="false" [(ngModel)]="searchText" class="form-control" id="search" mdbInputDirective>
+            <label for="search">Ingrese un nombre</label>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+            <div #alert class="alert alert-danger alert-dismissible fade hide-display " role="alert">
+                <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>{{message}}</strong>
+            </div>
+    </div>
+    <div class="col-md-12">
+        <table mdbTable class="z-depth-1">
+            <button type="button" mdbBtn class="circle-button" color="primary" (click)="getAllCategory()" mdbWavesEffect>
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+            </button>
+            <thead>
+              <tr>
+                <th class="text-center" *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of elements;let i = index">
+                    <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center" scope="row">{{category.name}}</td>
+                    <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center">{{category.crated_at | date:'MM/dd/yyyy'}}</td>
+                    <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center customer-padding">
+                        <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-danger" 
+                                     (click)="openModal(poliza,template)"><i class="fa fa-trash-o"></i></button>
+                               <button type="button" class="btn btn-warning" 
+                                     (click)="openModalUpdate(poliza,templateUpdate)"><i class="fa fa-pencil"></i></button>
+                        </div>
+                    </td> 
+                </tr>
+                <tr *ngIf="elements.length == 0" class="text-center">
+                    <td  colspan="3">No hay resultados para mostrar</td>
+                </tr>
+            </tbody>
+            <tfoot class="grey lighten-5 w-100">
+              <tr>
+                <td colspan="4">
+                  <mdb-table-pagination (nextPageClick)="onNextPageClick($event)" (previousPageClick)="onPreviousPageClick($event)">
+                  </mdb-table-pagination>
+                </td>
+              </tr>
+          
+            </tfoot>
+          </table>
+    </div>
+</div>

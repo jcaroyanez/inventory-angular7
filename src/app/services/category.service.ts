@@ -21,4 +21,11 @@ export class CategoryService {
   getAll(){
     return this.http.get(`${URL}category`);
   }
+
+  update(category){
+    const headers = new HttpHeaders().set('Content-Type','application/json');
+
+    const body = JSON.stringify(category);
+    return this.http.put(`${URL}category`,body,{headers})
+  }
 }

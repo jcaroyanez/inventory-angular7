@@ -8,6 +8,7 @@
         </h4>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12 mx-auto">
         <div class="md-form">
@@ -27,12 +28,15 @@
             </div>
     </div>
     <div class="col-md-12">
-        <table mdbTable class="z-depth-1">
-            <button type="button" mdbBtn class="circle-button" color="primary" (click)="getAllCategory()" mdbWavesEffect>
+        <table mdbTable>
+            <button 
+            popover="Actualizar"
+            triggers="mouseenter:mouseleave"
+            type="button" mdbBtn class="circle-button" color="primary" (click)="getAllCategory()" mdbWavesEffect>
                     <i class="fa fa-refresh" aria-hidden="true"></i>
             </button>
             <thead>
-              <tr>
+              <tr class="customer-thead">
                 <th class="text-center" *ngFor="let head of headElements; let i = index" scope="col">{{head}}
                 </th>
               </tr>
@@ -43,10 +47,14 @@
                     <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center">{{category.crated_at | date:'MM/dd/yyyy'}}</td>
                     <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center customer-padding">
                         <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-warning"  
+                                popover="Editar"
+                                triggers="mouseenter:mouseleave"
+                                (click)="openModal(templateEdit,category)"><i class="fa fa-pencil"></i></button>
                                 <button type="button" class="btn btn-danger" 
-                                     (click)="openModal(poliza,template)"><i class="fa fa-trash-o"></i></button>
-                               <button type="button" class="btn btn-warning" 
-                                     (click)="openModalUpdate(poliza,templateUpdate)"><i class="fa fa-pencil"></i></button>
+                                popover="Eliminar"
+                                triggers="mouseenter:mouseleave"
+                                (click)="openModal(basicModal)"><i class="fa fa-trash-o"></i></button>
                         </div>
                     </td> 
                 </tr>
@@ -61,8 +69,15 @@
                   </mdb-table-pagination>
                 </td>
               </tr>
-          
             </tfoot>
-          </table>
+        </table>
     </div>
 </div>
+
+<ng-template #templateEdit>
+    <app-edit-category
+        [category]="categorySelect" 
+        [modalRef]="modalRef"
+        (updateTable)="updateTable()"
+    ></app-edit-category>
+</ng-template>

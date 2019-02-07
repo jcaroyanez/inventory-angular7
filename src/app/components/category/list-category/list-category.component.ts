@@ -1,7 +1,8 @@
 import { Component, OnInit,  ViewChild, HostListener, AfterViewInit, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
-import { MdbTablePaginationComponent, MdbTableService } from 'angular-bootstrap-md';
-import { element } from '@angular/core/src/render3';
+import { MdbTablePaginationComponent, MdbTableService} from 'angular-bootstrap-md';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { EditCategoryComponent } from '../edit-category/edit-category.component';
 
 @Component({
   selector: 'app-list-category',
@@ -13,7 +14,9 @@ export class ListCategoryComponent implements OnInit, AfterViewInit  {
   @ViewChild('alert') alert: ElementRef;
    searchText:string;
    message = ''; 
-
+   categorySelect:any;
+   modalRef: BsModalRef;
+    
    @HostListener('input') oninput() {
     this.searchItems();
    }
@@ -27,8 +30,9 @@ export class ListCategoryComponent implements OnInit, AfterViewInit  {
   constructor(
     private categorySerice:CategoryService,
     private tableService: MdbTableService,
-    private cdRef: ChangeDetectorRef
-  ) { 
+    private cdRef: ChangeDetectorRef,
+    private modalService: BsModalService
+    ) { 
  
   }
 
@@ -53,7 +57,6 @@ export class ListCategoryComponent implements OnInit, AfterViewInit  {
       this.previous = this.tableService.getDataSource();
     },err => {
       if(err.error.message){
-        console.log(err)
         this.message = err.error.message;
         this.showAlert(); 
       }else{
@@ -98,9 +101,24 @@ export class ListCategoryComponent implements OnInit, AfterViewInit  {
           return true;
         } return false;
       })
-      console.log(this.elements)
       this.tableService.setDataSource(prev);
     }
 
+  }
+  
+  openModal(templateEdit,category){
+    this.categorySelect = category;
+    let config = {
+      animated: true,
+      keyboard: true,
+      backdrop: true,
+      class: "modal-margin"
+    };
+  
+    this.modalRef = this.modalService.show(templateEdit,config);
+  }
+
+  updateTable(){
+    this.getAllCategory();
   }
 }

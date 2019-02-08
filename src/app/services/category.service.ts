@@ -15,7 +15,7 @@ export class CategoryService {
     const headers = new HttpHeaders().set('Content-Type','application/json');
   
     const body = JSON.stringify(name)                                  
-    return this.http.post(`${URL}category`,body,{headers})
+    return this.http.post(`${URL}category`,body,{headers});
   }
 
   getAll(){
@@ -26,6 +26,10 @@ export class CategoryService {
     const headers = new HttpHeaders().set('Content-Type','application/json');
 
     const body = JSON.stringify(category);
-    return this.http.put(`${URL}category`,body,{headers})
+    return this.http.put(`${URL}category`,body,{headers});
+  }
+
+  delete(id:string){
+    return this.http.delete(`${URL}category/${id}`);
   }
 }

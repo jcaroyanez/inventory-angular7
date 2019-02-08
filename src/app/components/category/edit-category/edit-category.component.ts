@@ -50,6 +50,7 @@ export class EditCategoryComponent implements OnInit {
 
       this.categoryService.update(this.category).subscribe((response:any)=>{
         this.updateTable.emit();
+        this.message = null;
         this.closeAlert();
         this.alert.nativeElement.classList.replace('alert-danger','alert-success');
         this.message = response.message;

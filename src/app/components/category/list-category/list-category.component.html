@@ -44,7 +44,7 @@
             <tbody>
                 <tr *ngFor="let category of elements;let i = index">
                     <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center" scope="row">{{category.name}}</td>
-                    <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center">{{category.crated_at | date:'MM/dd/yyyy'}}</td>
+                    <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center">{{category.created_at | date:'MM/dd/yyyy'}}</td>
                     <td *ngIf="i+1 >= firstItemIndex && i < lastItemIndex" class="text-center customer-padding">
                         <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-warning"  
@@ -54,7 +54,7 @@
                                 <button type="button" class="btn btn-danger" 
                                 popover="Eliminar"
                                 triggers="mouseenter:mouseleave"
-                                (click)="openModal(basicModal)"><i class="fa fa-trash-o"></i></button>
+                                (click)="openModal(templateDelete,category)"><i class="fa fa-trash-o"></i></button>
                         </div>
                     </td> 
                 </tr>
@@ -80,4 +80,17 @@
         [modalRef]="modalRef"
         (updateTable)="updateTable()"
     ></app-edit-category>
+</ng-template>
+
+<ng-template #templateDelete>
+    <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100 text-center break-word" id="myModalLabel">¿ Desea eliminar la categoria {{categorySelect.name}} ?</h4>
+      </div>
+      <div class="modal-footer not-flex">
+            <button type="button" mdbBtn color="primary" class="relative waves-light btn-confirm position-left" (click)="delete()" mdbWavesEffect>Si</button>
+            <button type="button" mdbBtn color="secondary" class="relative waves-light btn-confirm position-right" (click)="modalRef.hide()" mdbWavesEffect>No</button>
+      </div>
 </ng-template>

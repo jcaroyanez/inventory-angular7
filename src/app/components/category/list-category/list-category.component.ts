@@ -49,7 +49,6 @@ export class ListCategoryComponent implements OnInit, AfterViewInit  {
   }  
 
   getAllCategory(){
-    this.closeAlert();
     this.categorySerice.getAll().subscribe((response:any[]) => {
       this.elements = response;
       this.tableService.setDataSource(this.elements);
@@ -57,11 +56,17 @@ export class ListCategoryComponent implements OnInit, AfterViewInit  {
       this.previous = this.tableService.getDataSource();
     },err => {
       if(err.error.message){
+        this.message = null;
+        this.closeAlert();
+        this.alert.nativeElement.classList.replace('alert-success','alert-danger');
         this.message = err.error.message;
-        this.showAlert(); 
+        this.showAlert();
       }else{
+        this.message = null;
+        this.closeAlert();
+        this.alert.nativeElement.classList.replace('alert-success','alert-danger');
         this.message = "A ocurrido un error inesperado";
-         this.showAlert();
+        this.showAlert();
       } 
     })  
   }
@@ -120,5 +125,17 @@ export class ListCategoryComponent implements OnInit, AfterViewInit  {
 
   updateTable(){
     this.getAllCategory();
+  }
+
+  delete(){
+    this.categorySerice.delete(this.categorySelect._id).subscribe((response:any) =>{
+      this.modalRef.hide();
+      this.closeAlert();
+      this.alert.nativeElement.classList.replace('alert-danger','alert-success');
+      this.message = response.message;
+      this.getAllCategory();
+      this.showAlert();
+    })
+    
   }
 }

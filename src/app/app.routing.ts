@@ -5,6 +5,7 @@ import { PanelComponent } from './components/layout/panel/panel.component';
 import { IsAuthGuard } from './guards/is-auth.guard';
 import { IsNotAuthGuard } from './guards/is-not-auth.guard';
 import { AddCategoryComponent } from './components/category/add-category/add-category.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
     {
@@ -15,6 +16,9 @@ const routes: Routes = [
     },
     {
         path:'panel',component:PanelComponent,canActivate:[IsNotAuthGuard],children:[
+            {
+                path:'',component:HomeComponent
+            },
             {
                 path:'category',loadChildren:'./components/category/category.module#CategoryModule'
             }

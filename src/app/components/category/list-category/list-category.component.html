@@ -1,5 +1,4 @@
-<div class="card mb-4 wow fadeIn header-title-component">
-    <!--Card content-->
+<!--<div class="card mb-4 wow fadeIn header-title-component">
     <div>
         <h4 class="mb-sm-0 pt-3">
             <span class="first-tile">Listado</span>
@@ -7,8 +6,10 @@
             <span class="second-title">Categorias</span>
         </h4>
     </div>
+</div>-->
+<div class="page-heade">
+    <h1 class="text-center header-title-component">Listado de categorias</h1>
 </div>
-
 <div class="row">
     <div class="col-md-12 mx-auto">
         <div class="md-form">
@@ -33,7 +34,7 @@
             popover="Actualizar"
             triggers="mouseenter:mouseleave"
             type="button" mdbBtn class="circle-button" color="primary" (click)="getAllCategory()" mdbWavesEffect>
-                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                    <i class="fas fa-redo-alt" aria-hidden="true"></i>
             </button>
             <thead>
               <tr class="customer-thead">
@@ -50,11 +51,11 @@
                                 <button type="button" class="btn btn-warning"  
                                 popover="Editar"
                                 triggers="mouseenter:mouseleave"
-                                (click)="openModal(templateEdit,category)"><i class="fa fa-pencil"></i></button>
+                                (click)="openModal(templateEdit,category)"><i class="fas fa-pencil-alt"></i></button>
                                 <button type="button" class="btn btn-danger" 
                                 popover="Eliminar"
                                 triggers="mouseenter:mouseleave"
-                                (click)="openModal(templateDelete,category)"><i class="fa fa-trash-o"></i></button>
+                                (click)="openModal(templateDelete,category)"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     </td> 
                 </tr>

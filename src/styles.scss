@@ -72,20 +72,7 @@ margin-bottom: 0px;
 
 .header-title-component{
     border-bottom: 5px solid !important;
-    div{
-        padding: 10px !important;
-        padding-bottom: 1rem !important;
-        .first-tile{
-            font-size: 1.7rem;
-        }
-        .second-title{
-            font-size: 1.2rem;     
-        }
-    }
-    .spacer-title{
-        margin-left: .3rem;
-        margin-right: .3rem;
-    }
+    padding: 10px;
 }
 
 .not-padding{
@@ -98,6 +85,10 @@ margin-bottom: 0px;
     }
 }
 
+.not-border{
+    border: none;
+}
+
 @media (max-width: 1199.98px) {
     .modal-margin{
         .modal-content{
@@ -108,4 +99,9 @@ margin-bottom: 0px;
 
 .break-word {
     word-wrap: break-word;
+}
+
+.active{
+    background: transparent !important;
+    color: #495057 !important;
 }

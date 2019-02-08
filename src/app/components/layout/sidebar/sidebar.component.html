@@ -7,18 +7,17 @@
 
     <div class="list-group list-group-flush">
 
-        <a routerLink="dashboards/v1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
+        <!--<a routerLink="dashboards/v1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
             <i class="fa fa-pie-chart mr-3"></i>Dashboard
-        </a>
+        </a>-->
 
-        <a href="#menuCategory" class="list-group-item collapsed active" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i
+        <a href="#menuCategory" class="list-group-item btn-menu" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i
                 class="fa fa-bookmark-o mr-3"></i> <span class="hidden-sm-down">Categoria</span></a>
         <div class="collapse customer-menu" id="menuCategory">
-            <a href="#" class="list-group-item item-link" data-parent="#menuCategory" [routerLink]="['/panel/category/add']">
+            <a href="#" class="list-group-item item-link" data-parent="#menuCategory" routerLinkActive="active" [routerLink]="['/panel/category/add']">
                 <i class="fa fa-plus mr-3"></i> <span class="hidden-sm-down">Crear</span></a>
-            <a href="#" class="list-group-item item-link" data-toggle="#menuCategory" [routerLink]="['/panel/category/list']">
+            <a href="#" class="list-group-item item-link" data-toggle="#menuCategory" routerLinkActive="active" [routerLink]="['/panel/category/list']">
                 <i class="fa fa-list-alt mr-3"></i> <span class="hidden-sm-down">Gestionar categorias</span></a>
-            <a href="#" class="list-group-item item-link" data-parent="#menuCategory"><i class="fa fa-exclamation mr-3"></i> <span class="hidden-sm-down">Item 3</span></a>
         </div>
     </div>
 </div>

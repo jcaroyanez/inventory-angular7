@@ -14,6 +14,7 @@ import { SidebarComponent } from './components/layout/sidebar/sidebar.component'
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InterceptorTokenService } from './services/interceptor-token.service';
+import { HomeComponent } from './components/home/home.component';
 
 
 const MDB_IMPORTS = [
@@ -31,7 +32,8 @@ const MDB_IMPORTS = [
     FooterComponent,
     HeaderComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
